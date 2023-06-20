@@ -8,9 +8,9 @@ def localFixture():
 
 @pytest.fixture
 def localFixture2(request):
-    grettings = "Hello"
+    greetings = "Hello"
     print("Fixture2 from local file")
-    yield grettings
+    yield greetings
     print("Clean up in the fixture2")
 
 @pytest.fixture

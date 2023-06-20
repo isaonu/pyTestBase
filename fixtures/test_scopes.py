@@ -5,7 +5,6 @@ import pytest
 def order():
     return []
 
-
 @pytest.fixture
 def func(order):
     order.append("function")
