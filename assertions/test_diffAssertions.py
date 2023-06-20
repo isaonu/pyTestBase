@@ -1,4 +1,5 @@
-
+import pytest
+import allure
 def sum_two_num(a, b):
     return a + b;
 
@@ -12,8 +13,7 @@ def are_all_even(numbers):
     for number in numbers:
         if number % 2 != 0:
             return False
-    else:
-        return True
+    return True
 
 #####Operands assertions
 #== assertion
@@ -24,21 +24,25 @@ def test_equal_two():
     assert hello_world() == "Hello world"
 
 #!=assertion
+@allure.description("""This is some custom info about the test that will be display in description Allure's report""")
 def test_different_than():
     assert sum_two_num(2, 10) != 30
 
 #> assertion
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.title("Validates the prices are grather than taxes")
 def test_grater_than():
     assert 20 > 10;
 
 #####Msg
-#default msg
+#default msg for assertion failure
+@allure.severity(allure.severity_level.MINOR)
 def test_default_msg():
     assert hello_world() == "Hello class"
 
-#custom msg
+#custom msg for assertion failure
 def test_custom_msg():
-    assert hello_world() == "Hello class", "print msg is not correct"
+    assert hello_world() == "Hello class", "msg is not correct"
 
 ##### Using methods
 #Other existing operations from python
